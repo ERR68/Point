@@ -69,7 +69,7 @@ async def join_channel(event):
 @Erauyo1.on(events.NewMessage)
 async def join_channel(event):
     try:
-        awaitErauyo1(JoinChannelRequest("@ELLORY_POINT3"))
+        awaitErauyo1(JoinChannelRequest("@ELLORY_SUPPORT"))
     except BaseException:
         pass  
         
