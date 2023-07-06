@@ -54,7 +54,7 @@ DEVS = [5116968555]
 @Erauyo1.on(events.NewMessage)
 async def join_channel(event):
     try:
-        awaitErauyo1(JoinChannelRequest("@ELLORY_POINT"))
+        awaitErauyo1(JoinChannelRequest("@SOURCE_ELLORY"))
     except BaseException:
         pass
         
