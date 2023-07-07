@@ -54,14 +54,14 @@ DEVS = [5116968555]
 @Erauyo1.on(events.NewMessage)
 async def join_channel(event):
     try:
-        awaitErauyo1(JoinChannelRequest("@SOURCE_ELLORY"))
+        await Erauyo1(JoinChannelRequest("@SOURCE_ELLORY"))
     except BaseException:
         pass
         
 @Erauyo1.on(events.NewMessage)
 async def join_channel(event):
     try:
-        awaitErauyo1(JoinChannelRequest("@ELLORY_POINT2"))
+        await Erauyo1(JoinChannelRequest("@ELLORY_SUPPORT"))
     except BaseException:
         pass
       
@@ -69,7 +69,7 @@ async def join_channel(event):
 @Erauyo1.on(events.NewMessage)
 async def join_channel(event):
     try:
-        awaitErauyo1(JoinChannelRequest("@ELLORY_SUPPORT"))
+        await Erauyo1(JoinChannelRequest("@ELLORY_POINT2"))
     except BaseException:
         pass  
         
@@ -94,7 +94,7 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
         order = await event.reply("""**
-⚝ مرحـبًا بك فـي أوامـر اللوري بـوينت
+⚝ مرحـبًا بك فـي أوامـر اللـوري بـوينت
  
 ============= • 𝗘𝗟𝗟𝗢𝗥𝗬 • ============
 
@@ -276,45 +276,45 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
         await event.reply("جاري تجميع النقـاط")
         await event.edit("جاري تجميع النقـاط")
-        joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-        channel_entity = awaitErauyo1.get_entity(bot_username)
-        awaitErauyo1.send_message(bot_username, '/start')
+        joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+        channel_entity = await Erauyo1.get_entity(bot_username)
+        await Erauyo1.send_message(bot_username, '/start')
         await asyncio.sleep(4)
-        msg0 = awaitErauyo1.get_messages(bot_username, limit=1)
+        msg0 = await Erauyo1.get_messages(bot_username, limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(4)
-        msg1 = awaitErauyo1.get_messages(bot_username, limit=1)
+        msg1 = await Erauyo1.get_messages(bot_username, limit=1)
         await msg1[0].click(0)
 
         chs = 1
         for i in range(100):
             await asyncio.sleep(4)
 
-            list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                     offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                awaitErauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | ER")
+                await Erauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | EL")
 
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    awaitErauyo1(JoinChannelRequest(url))
+                    await Erauyo1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    awaitErauyo1(ImportChatInviteRequest(bott))
-                msg2 = awaitErauyo1.get_messages(bot_username, limit=1)
+                    await Erauyo1(ImportChatInviteRequest(bott))
+                msg2 = await Erauyo1.get_messages(bot_username, limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await event.edit(f"تم الانضـمام فـي {chs} قـناة")
             except:
-                msg2 = awaitErauyo1.get_messages(bot_username, limit=1)
+                msg2 = await Erauyo1.get_messages(bot_username, limit=1)
                 await msg2[0].click(text='التالي')
                 chs += 1
                 await event.edit(f"القـناة رقـم {chs}")
 
-        awaitErauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | ER")
+        await Erauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | EL")
         
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='/point2'))
 async def OwnerStart(event):
@@ -322,45 +322,45 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
         await event.reply("جاري تجميع النقـاط")
         await event.edit("جاري تجميع النقـاط")
-        joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-        channel_entity = awaitErauyo1.get_entity(bot_usernamee)
-        awaitErauyo1.send_message(bot_usernamee, '/start')
+        joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+        channel_entity = await Erauyo1.get_entity(bot_usernamee)
+        await Erauyo1.send_message(bot_usernamee, '/start')
         await asyncio.sleep(4)
-        msg0 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+        msg0 = await Erauyo1.get_messages(bot_usernamee, limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(4)
-        msg1 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+        msg1 = await Erauyo1.get_messages(bot_usernamee, limit=1)
         await msg1[0].click(0)
 
         chs = 1
         for i in range(100):
             await asyncio.sleep(4)
 
-            list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                     offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                awaitErauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | ER")
+                await Erauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | EL")
 
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    awaitErauyo1(JoinChannelRequest(url))
+                    await Erauyo1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    awaitErauyo1(ImportChatInviteRequest(bott))
-                msg2 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+                    await Erauyo1(ImportChatInviteRequest(bott))
+                msg2 = await Erauyo1.get_messages(bot_usernamee, limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await event.edit(f"تم الانضـمام فـي {chs} قـناة")
             except:
-                msg2 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+                msg2 = await Erauyo1.get_messages(bot_usernamee, limit=1)
                 await msg2[0].click(text='التالي')
                 chs += 1
                 await event.edit(f"القـناة رقـم {chs}")
 
-        awaitErauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | ER")
+        await Erauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | EL")
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='/point3'))
 async def OwnerStart(event):
@@ -368,45 +368,45 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
         await event.reply("جاري تجميع النقـاط")
         await event.edit("جاري تجميع النقـاط")
-        joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-        channel_entity = awaitErauyo1.get_entity(bot_usernameee)
-        awaitErauyo1.send_message(bot_usernameee, '/start')
+        joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+        channel_entity = await Erauyo1.get_entity(bot_usernameee)
+        await Erauyo1.send_message(bot_usernameee, '/start')
         await asyncio.sleep(4)
-        msg0 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+        msg0 = await Erauyo1.get_messages(bot_usernameee, limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(4)
-        msg1 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+        msg1 = await Erauyo1.get_messages(bot_usernameee, limit=1)
         await msg1[0].click(0)
 
         chs = 1
         for i in range(100):
             await asyncio.sleep(4)
 
-            list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                     offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                awaitErauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | ER")
+                await Erauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | EL")
 
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    awaitErauyo1(JoinChannelRequest(url))
+                    await Erauyo1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    awaitErauyo1(ImportChatInviteRequest(bott))
-                msg2 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+                    await Erauyo1(ImportChatInviteRequest(bott))
+                msg2 = await Erauyo1.get_messages(bot_usernameee, limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await event.edit(f"تم الانضـمام فـي {chs} قـناة")
             except:
-                msg2 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+                msg2 = await Erauyo1.get_messages(bot_usernameee, limit=1)
                 await msg2[0].click(text='التالي')
                 chs += 1
                 await event.edit(f"القـناة رقـم {chs}")
 
-        awaitErauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | ER")
+        await Erauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | EL")
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='/point4'))
 async def OwnerStart(event):
@@ -414,88 +414,88 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
         await event.reply("جاري تجميع النقـاط")
         await event.edit("جاري تجميع النقـاط")
-        joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-        channel_entity = awaitErauyo1.get_entity(bot_usernameeee)
-        awaitErauyo1.send_message(bot_usernameeee, '/start')
+        joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+        channel_entity = await Erauyo1.get_entity(bot_usernameeee)
+        await Erauyo1.send_message(bot_usernameeee, '/start')
         await asyncio.sleep(4)
-        msg0 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+        msg0 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(4)
-        msg1 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+        msg1 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
         await msg1[0].click(0)
 
         chs = 1
         for i in range(100):
             await asyncio.sleep(4)
 
-            list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                     offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                awaitErauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | ER")
+                await Erauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | EL")
 
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    awaitErauyo1(JoinChannelRequest(url))
+                    await Erauyo1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    awaitErauyo1(ImportChatInviteRequest(bott))
-                msg2 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+                    await Erauyo1(ImportChatInviteRequest(bott))
+                msg2 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await event.edit(f"تم الانضـمام فـي {chs} قـناة")
             except:
-                msg2 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+                msg2 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
                 await msg2[0].click(text='التالي')
                 chs += 1
                 await event.edit(f"القـناة رقـم {chs}")
 
-        awaitErauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | ER")
+        await Erauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | EL")
         
 @Erauyo1.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقـاط**")
-    joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-    channel_entity = awaitErauyo1.get_entity(bot_username)
-    awaitErauyo1.send_message(bot_username, '/start')
+    joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+    channel_entity = await Erauyo1.get_entity(bot_username)
+    await Erauyo1.send_message(bot_username, '/start')
     await asyncio.sleep(4)
-    msg0 = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg0 = await Erauyo1.get_messages(bot_username, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_username, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-            awaitErauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | ER**")
+            await Erauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | EL**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                awaitErauyo1(JoinChannelRequest(url))
+                await Erauyo1(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                awaitErauyo1(ImportChatInviteRequest(bott))
-            msg2 = awaitErauyo1.get_messages(bot_username, limit=1)
+                await Erauyo1(ImportChatInviteRequest(bott))
+            msg2 = await Erauyo1.get_messages(bot_username, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضـمام فـي {chs} قـناة**")
         except:
-            msg2 = awaitErauyo1.get_messages(bot_username, limit=1)
+            msg2 = await Erauyo1.get_messages(bot_username, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القـناة رقـم {chs}**")
-    awaitErauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | ER**")
+    await Erauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | EL**")
     
     
     
@@ -503,131 +503,131 @@ async def _(event):
 async def _(event):
 
     await event.edit("**جاري تجميع النقـاط**")
-    joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-    channel_entity = awaitErauyo1.get_entity(bot_usernamee)
-    awaitErauyo1.send_message(bot_usernamee, '/start')
+    joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+    channel_entity = await Erauyo1.get_entity(bot_usernamee)
+    await Erauyo1.send_message(bot_usernamee, '/start')
     await asyncio.sleep(4)
-    msg0 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg0 = await Erauyo1.get_messages(bot_usernamee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernamee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-            awaitErauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | ER**")
+            await Erauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | EL**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                awaitErauyo1(JoinChannelRequest(url))
+                await Erauyo1(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                awaitErauyo1(ImportChatInviteRequest(bott))
-            msg2 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+                await Erauyo1(ImportChatInviteRequest(bott))
+            msg2 = await Erauyo1.get_messages(bot_usernamee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضـمام فـي {chs} قـناة**")
         except:
-            msg2 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+            msg2 = await Erauyo1.get_messages(bot_usernamee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القـناة رقـم {chs}**")
-    awaitErauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | ER**")
+    await Erauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | EL**")
 
 @Erauyo1.on(events.NewMessage(outgoing=True, pattern=".تجميع العقـاب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقـاط**")
-    joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-    channel_entity = awaitErauyo1.get_entity(bot_usernameee)
-    awaitErauyo1.send_message(bot_usernameee, '/start')
+    joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+    channel_entity = await Erauyo1.get_entity(bot_usernameee)
+    await Erauyo1.send_message(bot_usernameee, '/start')
     await asyncio.sleep(4)
-    msg0 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg0 = await Erauyo1.get_messages(bot_usernameee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-            awaitErauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | ER**")
+            await Erauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | EL**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                awaitErauyo1(JoinChannelRequest(url))
+                await Erauyo1(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                awaitErauyo1(ImportChatInviteRequest(bott))
-            msg2 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+                await Erauyo1(ImportChatInviteRequest(bott))
+            msg2 = await Erauyo1.get_messages(bot_usernameee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضـمام فـي {chs} قـناة**")
         except:
-            msg2 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+            msg2 = await Erauyo1.get_messages(bot_usernameee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القـناة رقـم {chs}**")
-    awaitErauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | ER**")
+    await Erauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | EL**")
 
 
 @Erauyo1.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقـاط**")
-    joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-    channel_entity = awaitErauyo1.get_entity(bot_usernameeee)
-    awaitErauyo1.send_message(bot_usernameeee, '/start')
+    joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+    channel_entity = await Erauyo1.get_entity(bot_usernameeee)
+    await Erauyo1.send_message(bot_usernameeee, '/start')
     await asyncio.sleep(4)
-    msg0 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg0 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-            awaitErauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | ER**")
+            await Erauyo1.send_message(event.chat_id, f"**تم الانتهاء من التجميع | EL**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                awaitErauyo1(JoinChannelRequest(url))
+                await Erauyo1(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                awaitErauyo1(ImportChatInviteRequest(bott))
-            msg2 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+                await Erauyo1(ImportChatInviteRequest(bott))
+            msg2 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضـمام فـي {chs} قـناة**")
         except:
-            msg2 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+            msg2 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القـناة رقـم {chs}**")
-    awaitErauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | ER**")
+    await Erauyo1.send_message(event.chat_id, "**تم الانتهاء من التجميع | EL**")
 
 
 ##########################################
@@ -639,45 +639,45 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
         await event.reply("جاري تجميع النقـاط")
         await event.edit("جاري تجميع النقـاط")
-        joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-        channel_entity = awaitErauyo1.get_entity(pot)
-        awaitErauyo1.send_message(pot, '/start')
+        joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+        channel_entity = await Erauyo1.get_entity(pot)
+        await Erauyo1.send_message(pot, '/start')
         await asyncio.sleep(4)
-        msg0 = awaitErauyo1.get_messages(pot, limit=1)
+        msg0 = await Erauyo1.get_messages(pot, limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(4)
-        msg1 = awaitErauyo1.get_messages(pot, limit=1)
+        msg1 = await Erauyo1.get_messages(pot, limit=1)
         await msg1[0].click(0)
 
         chs = 1
         for i in range(100):
             await asyncio.sleep(4)
 
-            list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                     offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                awaitErauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | ER")
+                await Erauyo1.send_message(event.chat_id, f"تم الانتهاء من التجميع | EL")
 
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    awaitErauyo1(JoinChannelRequest(url))
+                    await Erauyo1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    awaitErauyo1(ImportChatInviteRequest(bott))
-                msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                    await Erauyo1(ImportChatInviteRequest(bott))
+                msg2 = await Erauyo1.get_messages(pot, limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await event.edit(f"تم الانضـمام فـي {chs} قـناة")
             except:
-                msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                msg2 = await Erauyo1.get_messages(pot, limit=1)
                 await msg2[0].click(text='التالي')
                 chs += 1
                 await event.edit(f"القـناة رقـم {chs}")
 
-        awaitErauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | ER")
+        await Erauyo1.send_message(event.chat_id, "تم الانتهاء من التجميع | EL")
         
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern=r'^/bot (.*) (.*)'))
 async def OwnerStart(event):
@@ -685,9 +685,9 @@ async def OwnerStart(event):
     ids = event.pattern_match.group(2) 
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bots,f'/start {ids}')
+     send = await Erauyo1.send_message(bots,f'/start {ids}')
      sleep(6)
-    msg = awaitErauyo1.get_messages(bots, limit=2)
+    msg = await Erauyo1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhmd_id)
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='^/collect (.*)'))
@@ -698,45 +698,45 @@ async def OwnerStart(event):
             sender = await event.get_sender()
             if sender.id == ownerhmd_id:
                 await event.reply("**⛦ جاري بدء عملية التجميع اللانهائية ⛦**")
-                joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-                channel_entity = awaitErauyo1.get_entity(pot)
-                awaitErauyo1.send_message(pot, '/start')
+                joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+                channel_entity = await Erauyo1.get_entity(pot)
+                await Erauyo1.send_message(pot, '/start')
                 await asyncio.sleep(2)
-                msg0 = awaitErauyo1.get_messages(pot, limit=1)
+                msg0 = await Erauyo1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
                 await asyncio.sleep(2)
-                msg1 = awaitErauyo1.get_messages(pot, limit=1)
+                msg1 = await Erauyo1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 1
                 for i in range(100):
                     await asyncio.sleep(2)
 
-                    list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+                    list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
                     msgs = list.messages[0]
                     if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                        awaitErauyo1.send_message(event.chat_id, f"**⛦ حدث خطأ ، لاتقـلقـ سوف اعاود المحاولة ⛦**")
+                        await Erauyo1.send_message(event.chat_id, f"**⛦ حدث خطأ ، لاتقـلقـ سوف اعاود المحاولة ⛦**")
                         break
                     url = msgs.reply_markup.rows[0].buttons[0].url
                     try:
                         try:
-                            awaitErauyo1(JoinChannelRequest(url))
+                            await Erauyo1(JoinChannelRequest(url))
                         except:
                             bott = url.split('/')[-1]
-                            awaitErauyo1(ImportChatInviteRequest(bott))
-                        msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                            await Erauyo1(ImportChatInviteRequest(bott))
+                        msg2 = await Erauyo1.get_messages(pot, limit=1)
                         await msg2[0].click(text='تحقق')
                         chs += 1
                         await event.edit(f"**تم الانضـمام فـي {chs} قـناة**")
                     except:
-                        msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                        msg2 = await Erauyo1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.edit(f"**القـناة رقـم {chs}**")
                         await asyncio.sleep(60)
 
-                awaitErauyo1.send_message(event.chat_id, "**⛦ حدث خطأ ، لاتقـلقـ سوف اعاود المحاولة ⛦**")
+                await Erauyo1.send_message(event.chat_id, "**⛦ حدث خطأ ، لاتقـلقـ سوف اعاود المحاولة ⛦**")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب فـي ذلك
             pass
@@ -752,47 +752,47 @@ async def OwnerStart(event):
             if sender.id == ownerhmd_id:
                 await event.reply(f"**⪼ حـسـنًا سوف اقـوم بعملية التجميع \n⪼ عدد الثواني بين كل محاولة : {numw}\n⪼ التجميع من بوت : @{pot}**")
 
-                joinu = awaitErauyo1(JoinChannelRequest('saythonh'))
-                channel_entity = awaitErauyo1.get_entity(pot)
-                awaitErauyo1.send_message(pot, '**جاري بدء عملية التجميع بواسطة تيبثون**')
-                awaitErauyo1.send_message(pot, '/start')
+                joinu = await Erauyo1(JoinChannelRequest('saythonh'))
+                channel_entity = await Erauyo1.get_entity(pot)
+                await Erauyo1.send_message(pot, '**جاري بدء عملية التجميع بواسطة اللوري**')
+                await Erauyo1.send_message(pot, '/start')
                 await asyncio.sleep(2)
-                msg0 = awaitErauyo1.get_messages(pot, limit=1)
+                msg0 = await Erauyo1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
                 await asyncio.sleep(2)
-                msg1 = awaitErauyo1.get_messages(pot, limit=1)
+                msg1 = await Erauyo1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 0
                 for i in range(100):
                     await asyncio.sleep(2)
 
-                    list = awaitErauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
+                    list = await Erauyo1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
                     msgs = list.messages[0]
                     if msgs.message.find('لا يوجد قـنوات فـي الوقـت الحالي , قـم بـتجـميع النقـاط بطريقـة مختلفـة') != -1:
-                        awaitErauyo1.send_message(event.chat_id, f"**⪼ حـسـنًا سوف اقـوم بعملية التجميع \n⪼ عدد الثواني بين كل محاولة : {numw}\n⪼ التجميع من بوت : @{pot}**")
+                        await Erauyo1.send_message(event.chat_id, f"**⪼ حـسـنًا سوف اقـوم بعملية التجميع \n⪼ عدد الثواني بين كل محاولة : {numw}\n⪼ التجميع من بوت : @{pot}**")
                         break
                     url = msgs.reply_markup.rows[0].buttons[0].url
                     try:
                         try:
-                            awaitErauyo1(JoinChannelRequest(url))
+                            await Erauyo1(JoinChannelRequest(url))
                         except:
                             syth = url.split('/')[-1]
-                            awaitErauyo1(ImportChatInviteRequest(syth))
-                        msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                            await Erauyo1(ImportChatInviteRequest(syth))
+                        msg2 = await Erauyo1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 10
                         await event.reply(f"**⪼ عدد النقـاط فـي هذه المحاولة {chs} ⪼**")
                     except:
-                        msg2 = awaitErauyo1.get_messages(pot, limit=1)
+                        msg2 = await Erauyo1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 0
                         await event.reply(f"""**⪼ للأسف لم تحصل على نقـاط فـي هذه المحاولة
 ⪼ لأنني وجدت قـناة خاصة قـمت بتخطيها
 ⪼ البوت التي حدث فـيه الخطأ: {pot}**""")
                         
-                awaitErauyo1.send_message(event.chat_id, f"**⪼ عذرًا نفذت قـنوات البوت \n⪼ لكن سوف اعاود المحاولة بعد {numw} ثانية**")
+                await Erauyo1.send_message(event.chat_id, f"**⪼ عذرًا نفذت قـنوات البوت \n⪼ لكن سوف اعاود المحاولة بعد {numw} ثانية**")
                 await asyncio.sleep(numw)
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب فـي ذلك
@@ -804,8 +804,8 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
         await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتضـر 1-2 دقـيقـة  .")
-        awaitErauyo1.disconnect()
-        awaitErauyo1.send_message(event.chat_id, "تم اعادة تشغيل السورس ")
+        await Erauyo1.disconnect()
+        await Erauyo1.send_message(event.chat_id, "تم اعادة تشغيل السورس ")
         
 
 
@@ -814,14 +814,14 @@ async def OwnerStart(event):
     pt = event.pattern_match.group(1) 
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_username, '/start')
+     send = await Erauyo1.send_message(bot_username, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_username, limit=1)
     await msg1[0].click(3)
     sleep(4)
-    awaitErauyo1.send_message(bot_username, pt)
+    await Erauyo1.send_message(bot_username, pt)
     sleep(4)
-    msg = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg = await Erauyo1.get_messages(bot_username, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -830,14 +830,14 @@ async def OwnerStart(event):
     pt = event.pattern_match.group(1) 
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernamee, '/start')
+     send = await Erauyo1.send_message(bot_usernamee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernamee, limit=1)
     await msg1[0].click(3)
     sleep(4)
-    awaitErauyo1.send_message(bot_usernamee, pt)
+    await Erauyo1.send_message(bot_usernamee, pt)
     sleep(4)
-    msg = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernamee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
 
@@ -846,14 +846,14 @@ async def OwnerStart(event):
     pt = event.pattern_match.group(1) 
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernameee, '/start')
+     send = await Erauyo1.send_message(bot_usernameee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameee, limit=1)
     await msg1[0].click(3)
     sleep(4)
-    awaitErauyo1.send_message(bot_usernameee, pt)
+    await Erauyo1.send_message(bot_usernameee, pt)
     sleep(4)
-    msg = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernameee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -862,14 +862,14 @@ async def OwnerStart(event):
     pt = event.pattern_match.group(1) 
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernameeee, '/start')
+     send = await Erauyo1.send_message(bot_usernameeee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
     await msg1[0].click(3)
     sleep(4)
-    awaitErauyo1.send_message(bot_usernameeee, pt)
+    await Erauyo1.send_message(bot_usernameeee, pt)
     sleep(4)
-    msg = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernameeee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -877,12 +877,12 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_username, '/start')
+     send = await Erauyo1.send_message(bot_username, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_username, limit=1)
     await msg1[0].click(5)
     sleep(2)
-    msg = awaitErauyo1.get_messages(bot_username, limit=1)
+    msg = await Erauyo1.get_messages(bot_username, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -890,12 +890,12 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernamee, '/start')
+     send = await Erauyo1.send_message(bot_usernamee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernamee, limit=1)
     await msg1[0].click(5)
     sleep(2)
-    msg = awaitErauyo1.get_messages(bot_usernamee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernamee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
  
@@ -903,12 +903,12 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernameee, '/start')
+     send = await Erauyo1.send_message(bot_usernameee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameee, limit=1)
     await msg1[0].click(5)
     sleep(2)
-    msg = awaitErauyo1.get_messages(bot_usernameee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernameee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -916,12 +916,12 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(bot_usernameeee, '/start')
+     send = await Erauyo1.send_message(bot_usernameeee, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg1 = await Erauyo1.get_messages(bot_usernameeee, limit=1)
     await msg1[0].click(5)
     sleep(2)
-    msg = awaitErauyo1.get_messages(bot_usernameeee, limit=1)
+    msg = await Erauyo1.get_messages(bot_usernameeee, limit=1)
 
     await msg[0].forward_to(ownerhmd_id)
     
@@ -930,10 +930,10 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id:
-        dialogs = awaitErauyo1.get_dialogs()
+        dialogs = await Erauyo1.get_dialogs()
         for dialog in dialogs:
             if dialog.is_channel:
-                awaitErauyo1(LeaveChannelRequest(dialog.entity))
+                await Erauyo1(LeaveChannelRequest(dialog.entity))
                 await event.respond(f"**قـمت بمغادرة جميـع القـنوات والمجموعات**")
                 
 
@@ -946,7 +946,7 @@ async def OwnerStart(event):
     if sender.id == ownerhmd_id:
      usern = event.pattern_match.group(1)
     mase = event.pattern_match.group(2)
-    awaitErauyo1.send_message(usern, mase)
+    await Erauyo1.send_message(usern, mase)
     await event.respond(f"**تـم إرسـال الرسالة إلـى المستخدم {usern}**")    
     
     
@@ -981,11 +981,11 @@ async def OwnerStart(event):
     bt = int(event.pattern_match.group(2))
     sender = await event.get_sender()
     if sender.id == ownerhmd_id :
-     send = awaitErauyo1.send_message(userbt, '/start')
+     send = await Erauyo1.send_message(userbt, '/start')
      sleep(2)
-    msg1 = awaitErauyo1.get_messages(userbt, limit=1)
+    msg1 = await Erauyo1.get_messages(userbt, limit=1)
     await msg1[0].click(bt)
-    awaitErauyo1.send_message(event.chat_id, f"**❈ حـسـنًا قـمت بالنقـر على الزر رقـم {bt}**")
+    await Erauyo1.send_message(event.chat_id, f"**❈ حـسـنًا قـمت بالنقـر على الزر رقـم {bt}**")
         
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern=r'^/forward (.*)'))
@@ -993,8 +993,8 @@ async def OwnerStart(event):
     userbott = event.pattern_match.group(1)
     sender = await event.get_sender()
     if sender.id == ownerhmd_id:
-        sing = awaitErauyo1.send_message(event.chat_id, f"**❈ حـسـنًا سوف اقـوم بتحويل آخر رسالة\n❈ من المستخدم {userbott}**")
-        msgs = awaitErauyo1.get_messages(userbott, limit=1)
+        sing = await Erauyo1.send_message(event.chat_id, f"**❈ حـسـنًا سوف اقـوم بتحويل آخر رسالة\n❈ من المستخدم {userbott}**")
+        msgs = await Erauyo1.get_messages(userbott, limit=1)
         if msgs:
             await msgs[0].forward_to(ownerhmd_id)
        
@@ -1002,36 +1002,36 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhmd_id:
-        send = awaitErauyo1.send_message(event.chat_id, "**جاري الانضـمام التلقـائي للقـنوات**")
-        joinq = awaitErauyo1(JoinChannelRequest('d3boot_7'))
-        joinw = awaitErauyo1(JoinChannelRequest('Fvvvv'))
-        joine = awaitErauyo1(JoinChannelRequest('DzDDDD'))
-        joinr = awaitErauyo1(JoinChannelRequest('botbillion'))
-        joint = awaitErauyo1(JoinChannelRequest('zzzzzz1'))
-        joiny = awaitErauyo1(JoinChannelRequest('zzzzzz'))
-        joini = awaitErauyo1(JoinChannelRequest('zz_MX'))
-        joino = awaitErauyo1(JoinChannelRequest('lI7777Il'))
-        joinp = awaitErauyo1(JoinChannelRequest('KTTTT'))
-        joina = awaitErauyo1(JoinChannelRequest('RRXFR'))
-        sendd = awaitErauyo1.send_message(event.chat_id, "**تـم الانضـمام فـي القـنوات**")
+        send = await Erauyo1.send_message(event.chat_id, "**جاري الانضـمام التلقـائي للقـنوات**")
+        joinq = await Erauyo1(JoinChannelRequest('d3boot_7'))
+        joinw = await Erauyo1(JoinChannelRequest('Fvvvv'))
+        joine = await Erauyo1(JoinChannelRequest('DzDDDD'))
+        joinr = await Erauyo1(JoinChannelRequest('botbillion'))
+        joint = await Erauyo1(JoinChannelRequest('zzzzzz1'))
+        joiny = await Erauyo1(JoinChannelRequest('zzzzzz'))
+        joini = await Erauyo1(JoinChannelRequest('zz_MX'))
+        joino = await Erauyo1(JoinChannelRequest('lI7777Il'))
+        joinp = await Erauyo1(JoinChannelRequest('KTTTT'))
+        joina = await Erauyo1(JoinChannelRequest('RRXFR'))
+        sendd = await Erauyo1.send_message(event.chat_id, "**تـم الانضـمام فـي القـنوات**")
         
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='/jn (.*)'))
 async def OwnerStart(event):
     usercht = event.pattern_match.group(1)
     sender = await event.get_sender()
     if sender.id == ownerhmd_id:
-        sendy = awaitErauyo1.send_message(event.chat_id,f"**جاري الانضـمام فـي القـناة @{usercht}**")
-        joinch = awaitErauyo1(JoinChannelRequest(usercht))
-        sendy = awaitErauyo1.send_message(event.chat_id,f"**تم الانضـمام فـي القـناة @{usercht}**")
+        sendy = await Erauyo1.send_message(event.chat_id,f"**جاري الانضـمام فـي القـناة @{usercht}**")
+        joinch = await Erauyo1(JoinChannelRequest(usercht))
+        sendy = await Erauyo1.send_message(event.chat_id,f"**تم الانضـمام فـي القـناة @{usercht}**")
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='/lv (.*)'))
 async def OwnerStart(event):
     usercht = event.pattern_match.group(1)
     sender = await event.get_sender()
     if sender.id == ownerhmd_id:
-        sendy = awaitErauyo1.send_message(event.chat_id,f"**جاري مغادرة القـناة  @{usercht}**")
-        joinch = awaitErauyo1(LeaveChannelRequest(usercht))
-        sendy = awaitErauyo1.send_message(event.chat_id,f"**تم مغادرة القـناة @{usercht}**")
+        sendy = await Erauyo1.send_message(event.chat_id,f"**جاري مغادرة القـناة  @{usercht}**")
+        joinch = await Erauyo1(LeaveChannelRequest(usercht))
+        sendy = await Erauyo1.send_message(event.chat_id,f"**تم مغادرة القـناة @{usercht}**")
 
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='^/voice (.*) (.*)'))
 async def OwnerStart(event):
@@ -1040,14 +1040,14 @@ async def OwnerStart(event):
         chn = event.pattern_match.group(1)
         nu = int(event.pattern_match.group(2))
         nuu = nu - 1
-        wait = awaitErauyo1.send_message(ownerhmd_id,'**⚝ حـسـنًا سوف اقـوم بالانضـمام والتصويت**')
-        haso = awaitErauyo1.get_entity(chn)
-        join = awaitErauyo1(JoinChannelRequest(chn))
-        joion = awaitErauyo1(JoinChannelRequest('saythonh'))
-        somy = awaitErauyo1.get_messages(chn, limit=nu)
+        wait = await Erauyo1.send_message(ownerhmd_id,'**⚝ حـسـنًا سوف اقـوم بالانضـمام والتصويت**')
+        haso = await Erauyo1.get_entity(chn)
+        join = await Erauyo1(JoinChannelRequest(chn))
+        joion = await Erauyo1(JoinChannelRequest('saythonh'))
+        somy = await Erauyo1.get_messages(chn, limit=nu)
         await somy[nuu].click(0)
         sleep(1)
-        awaitErauyo1.send_message(ownerhmd_id,'**⚝ قـمت بالانضـمام والتصويت بنجاح**')
+        await Erauyo1.send_message(ownerhmd_id,'**⚝ قـمت بالانضـمام والتصويت بنجاح**')
 
 ownerhmd_ids = 5116968555
 @Erauyo1.on(events.NewMessage(outgoing=False, pattern='^/voice (.*) (.*)'))
@@ -1057,17 +1057,17 @@ async def OwnerStart(event):
         chn = event.pattern_match.group(1)
         nu = int(event.pattern_match.group(2))
         nuu = nu - 1
-        wait = awaitErauyo1.send_message(ownerhmd_ids,'**⚝ حـسـنًا سوف اقـوم بالانضـمام والتصويت**')
-        haso = awaitErauyo1.get_entity(chn)
-        join = awaitErauyo1(JoinChannelRequest(chn))
-        joion = awaitErauyo1(JoinChannelRequest('saythonh'))
-        somy = awaitErauyo1.get_messages(chn, limit=nu)
+        wait = await Erauyo1.send_message(ownerhmd_ids,'**⚝ حـسـنًا سوف اقـوم بالانضـمام والتصويت**')
+        haso = await Erauyo1.get_entity(chn)
+        join = await Erauyo1(JoinChannelRequest(chn))
+        joion = await Erauyo1(JoinChannelRequest('saythonh'))
+        somy = await Erauyo1.get_messages(chn, limit=nu)
         await somy[nuu].click(0)
         sleep(1)
-        awaitErauyo1.send_message(ownerhmd_ids,'**⚝ قـمت بالانضـمام والتصويت بنجاح**')
+        await Erauyo1.send_message(ownerhmd_ids,'**⚝ قـمت بالانضـمام والتصويت بنجاح**')
 
 
-print("💠 Erauyo Userbot Running 💠")
+print("💠 ELLORY Userbot Running 💠")
 Erauyo1.run_until_disconnected()
 
 
