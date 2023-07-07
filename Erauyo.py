@@ -34,7 +34,7 @@ import requests
 # - SYTHOM TEAM 
 # -
 
-Tepthon1.start()
+Erauyo1.start()
 
 
 
@@ -1067,8 +1067,8 @@ async def OwnerStart(event):
         awaitErauyo1.send_message(ownerhmd_ids,'**⚝ قـمت بالانضـمام والتصويت بنجاح**')
 
 
-print("💠 Tepthon Userbot Running 💠")
-Tepthon1.run_until_disconnected()
+print("💠 Erauyo Userbot Running 💠")
+Erauyo1.run_until_disconnected()
 
 
 #code skip accumulate points by t.me.zzzzl1l thank you my bro
