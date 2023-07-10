@@ -803,7 +803,7 @@ async def OwnerStart(event):
 
                 joinu = await Erauyo1(JoinChannelRequest('saythonh'))
                 channel_entity = await Erauyo1.get_entity(pot)
-                await Erauyo1.send_message(pot, '**جاري بدأ عملية التجميع بواسطة سايثون**')
+                await Erauyo1.send_message(pot, '**جاري بدء التجميع بواسطة اللوري**')
                 await Erauyo1.send_message(pot, '/start')
                 await asyncio.sleep(2)
                 msg0 = await Erauyo1.get_messages(pot, limit=1)
@@ -852,9 +852,9 @@ async def OwnerStart(event):
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
-        await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
+        await event.reply("• جارِ إعادة تشغيل السورس ..\n• انتـظر 1-2 دقيقة  .")
         await Erauyo1.disconnect()
-        await Erauyo1.send_message(event.chat_id, "تم اعادة تشغيل السورس ")
+        await Erauyo1.send_message(event.chat_id, "تم إعادة تشغيل السورس ")
         
 
 
