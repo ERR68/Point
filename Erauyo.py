@@ -39,7 +39,7 @@ Erauyo1.start()
 
 
 c = requests.session()
-bot_username = '@zmmbot'
+bot_username = '@EEOBot'
 bot_usernamee = '@A_MAN9300BOT'
 bot_usernameee = '@MARKTEBOT'
 bot_usernameeee = '@xnsex21bot'
@@ -1006,7 +1006,7 @@ async def OwnerStart(event):
     if sender.id == ownerhson_id :
         order = await event.reply("""**مرحبا بك في قسم تحويل النقاط
         
-• @ZMMBOT - `/pt1 + عدد النقاط `
+• @EEOBot - `/pt1 + عدد النقاط `
 • @A_MAN9300BOT - `/pt2 + عدد النقاط`
 • @MARKTEBOT - `/pt3 + عدد النقاط `
 • @XNSEX21BOT - `/pt4 + عدد النقاط`**""")
@@ -1018,7 +1018,7 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
         order = await event.reply("""**مرحبا في قسم معلومات الحسابات 
-• @ZMMBOT - `/npoint1`
+• @EEOBot - `/npoint1`
 • @A_MAN9300BOT - `/npoint2`
 • @MARKTEBOT - `/npoint3`
 • @XNSEX21BOT - `/npoint4`**""")
